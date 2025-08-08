@@ -4,8 +4,8 @@
 
 **HPPinAja** adalah aplikasi web sederhana yang dirancang khusus untuk membantu para pelaku UMKM, khususnya di bidang kuliner atau kerajinan, dalam menghitung Harga Pokok Penjualan (HPP) produk mereka dengan mudah, cepat, dan akurat.
 
+![Tampilan Aplikasi](Home.png) 
 ![Tampilan Aplikasi](print.png) 
-
 ---
 
 ### ✨ Fitur Utama
