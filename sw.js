@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hppinaja-cache-v4'; // Versi cache diubah agar browser memuat ulang
+const CACHE_NAME = 'hppinaja-cache-v5'; // Versi cache diubah agar browser memuat ulang
 const URLS_TO_CACHE = [
   './',
   './index.html',
