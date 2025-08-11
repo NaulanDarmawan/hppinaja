@@ -4,6 +4,8 @@ const URLS_TO_CACHE = [
   './index.html',
   './manifest.json',
   './logo.jpg',          // Ikon utama untuk PWA
+  './logo-192.jpg',
+  './logo-512.jpg',
   './iconstimata.png',   // Ikon untuk footer
   'https://cdn.tailwindcss.com',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
