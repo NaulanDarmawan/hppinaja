@@ -1,1125 +1,207 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HPPinAja - Kalkulator HPP UMKM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-        font-family: "Inter", sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      input:disabled,
-      select:disabled {
-        background-color: #f3f4f6;
-        cursor: not-allowed;
-        border-color: #e5e7eb;
-      }
-      .row-calculated {
-        background-color: #f0fdf4 !important;
-        border-color: #22c55e !important;
-      }
-      .row-calculated .hitung-subtotal-btn {
-        background-color: #16a34a !important;
-        cursor: not-allowed;
-      }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        input:disabled, select:disabled { background-color: #f3f4f6; cursor: not-allowed; border-color: #e5e7eb; }
+        .row-calculated { background-color: #f0fdf4 !important; border-color: #22c55e !important; }
+        .row-calculated .hitung-subtotal-btn { background-color: #16a34a !important; cursor: not-allowed; }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-slate-100">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100">
     <div class="container mx-auto max-w-3xl p-4 sm:p-6">
-      <header class="text-center my-8">
-        <h1 class="text-4xl font-bold text-slate-800">HPPinAja 🚀</h1>
-        <p class="text-lg text-slate-600 mt-2">
-          Kalkulasi HPP UMKM dalam sekejap.
-        </p>
-      </header>
-
-      <main class="space-y-8">
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg"
-              >★</span
-            >
-            Informasi Produk
-          </h2>
-          <p class="text-slate-500 mt-2 mb-6 border-b pb-4">
-            Isi nama produk dan unggah logo Anda agar tampil di laporan akhir.
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-              <label
-                for="nama-produk"
-                class="block text-sm font-medium text-slate-700 mb-2"
-                >Nama Produk</label
-              ><input
-                type="text"
-                id="nama-produk"
-                placeholder="Contoh: Donat Kentang Premium"
-                class="w-full p-3 border-2 border-slate-300 rounded-lg focus:ring-4 focus:ring-blue-200 focus:border-blue-500"
-              />
+        <header class="text-center my-8">
+            <div class="flex justify-center items-center gap-4">
+                <img src="logo.jpg" alt="Logo HPPinAja" class="h-16 w-auto rounded-md">
+                <h1 class="text-4xl font-bold text-slate-800">HPPinAja</h1>
             </div>
-            <div>
-              <label
-                for="logo-usaha"
-                class="block text-sm font-medium text-slate-700 mb-2"
-                >Logo Usaha (Opsional)</label
-              >
-              <div class="flex items-center gap-4">
-                <input
-                  type="file"
-                  id="logo-usaha"
-                  accept="image/*"
-                  class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
-                /><img
-                  id="logo-preview"
-                  class="h-20 w-20 rounded-lg object-cover hidden bg-slate-200 border-2"
-                  src=""
-                  alt="Logo Preview"
-                />
-              </div>
+            <p class="text-lg text-slate-600 mt-2">Kalkulasi HPP UMKM dalam sekejap.</p>
+        </header>
+
+        <main class="space-y-8">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg">★</span> Informasi Produk</h2>
+                <p class="text-slate-500 mt-2 mb-6 border-b pb-4">Isi nama produk dan unggah logo Anda agar tampil di laporan akhir.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div><label for="nama-produk" class="block text-sm font-medium text-slate-700 mb-2">Nama Produk</label><input type="text" id="nama-produk" placeholder="Contoh: Donat Kentang Premium" class="w-full p-3 border-2 border-slate-300 rounded-lg focus:ring-4 focus:ring-blue-200 focus:border-blue-500"></div>
+                    <div><label for="logo-usaha" class="block text-sm font-medium text-slate-700 mb-2">Logo Usaha (Opsional)</label><div class="flex items-center gap-4"><input type="file" id="logo-usaha" accept="image/*" class="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"><img id="logo-preview" class="h-20 w-20 rounded-lg object-cover hidden bg-slate-200 border-2" src="" alt="Logo Preview"></div></div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
-              >1</span
-            >
-            Biaya Bahan Baku
-          </h2>
-          <p class="text-slate-500 mt-2 mb-6 border-b pb-4">
-            Isi semua bahan yang dipakai. Klik "✅ Kunci" di setiap baris jika
-            sudah selesai.
-          </p>
-          <div id="bahan-baku-list" class="space-y-4"></div>
-          <button
-            id="tambah-bahan-btn"
-            class="mt-4 w-full bg-green-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Tambah Baris Bahan Baku
-          </button>
-        </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">1</span> Biaya Bahan Baku</h2>
+                <p class="text-slate-500 mt-2 mb-6 border-b pb-4">Isi semua bahan yang dipakai. Klik "✅ Kunci" di setiap baris jika sudah selesai.</p>
+                <div id="bahan-baku-list" class="space-y-4"></div>
+                <button id="tambah-bahan-btn" class="mt-4 w-full bg-green-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /></svg> Tambah Baris Bahan Baku</button>
+            </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
-              >2</span
-            >
-            Biaya Tenaga Kerja
-          </h2>
-          <p class="text-slate-500 mt-2 mb-6 border-b pb-4">
-            Isi rincian upah atau gaji untuk semua tenaga kerja yang terlibat.
-          </p>
-          <div id="tenaga-kerja-list" class="space-y-4"></div>
-          <button
-            id="tambah-tenaga-kerja-btn"
-            class="mt-4 w-full bg-sky-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-sky-600 transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Tambah Baris Tenaga Kerja
-          </button>
-        </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">2</span> Biaya Tenaga Kerja</h2>
+                <p class="text-slate-500 mt-2 mb-6 border-b pb-4">Isi rincian upah atau gaji untuk semua tenaga kerja yang terlibat.</p>
+                <div id="tenaga-kerja-list" class="space-y-4"></div>
+                <button id="tambah-tenaga-kerja-btn" class="mt-4 w-full bg-sky-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-sky-600 transition-colors flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /></svg> Tambah Baris Tenaga Kerja</button>
+            </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
-              >3</span
-            >
-            Biaya Penyusutan Aset
-          </h2>
-          <p class="text-slate-500 mt-2 mb-6 border-b pb-4">
-            Masukkan aset produksi Anda. Biaya penyusutan per hari akan
-            ditambahkan ke total biaya produksi.
-          </p>
-          <div id="penyusutan-list" class="space-y-4"></div>
-          <button
-            id="tambah-penyusutan-btn"
-            class="mt-4 w-full bg-orange-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Tambah Baris Aset
-          </button>
-        </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">3</span> Biaya Penyusutan Aset</h2>
+                <p class="text-slate-500 mt-2 mb-6 border-b pb-4">Masukkan aset produksi Anda. Biaya penyusutan per hari akan ditambahkan ke total biaya produksi.</p>
+                <div id="penyusutan-list" class="space-y-4"></div>
+                <button id="tambah-penyusutan-btn" class="mt-4 w-full bg-orange-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-orange-600 transition-colors flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /></svg> Tambah Baris Aset</button>
+            </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
-              >4</span
-            >
-            Biaya Pendukung Lainnya
-          </h2>
-          <p class="text-slate-500 mt-2 mb-6 border-b pb-4">
-            Isi biaya operasional lain seperti gas, listrik, sewa, dan kemasan.
-          </p>
-          <div id="biaya-pendukung-list" class="space-y-4"></div>
-          <button
-            id="tambah-biaya-btn"
-            class="mt-4 w-full bg-cyan-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-cyan-600 transition-colors flex items-center justify-center gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
-                clip-rule="evenodd"
-              />
-            </svg>
-            Tambah Baris Biaya Pendukung
-          </button>
-        </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">4</span> Biaya Pendukung Lainnya</h2>
+                <p class="text-slate-500 mt-2 mb-6 border-b pb-4">Isi biaya operasional lain seperti gas, listrik, sewa, dan kemasan.</p>
+                <div id="biaya-pendukung-list" class="space-y-4"></div>
+                <button id="tambah-biaya-btn" class="mt-4 w-full bg-cyan-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-cyan-600 transition-colors flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" /></svg> Tambah Baris Biaya Pendukung</button>
+            </div>
 
-        <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
-          <h2
-            class="text-2xl font-semibold text-slate-700 flex items-center gap-3"
-          >
-            <span
-              class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold"
-              >5</span
-            >
-            Hasil Produksi & Margin
-          </h2>
-          <p class="text-slate-500 mt-2 mb-4 border-b pb-4">
-            Isi jumlah produk jadi dan target margin keuntungan Anda.
-          </p>
-          <div>
-            <label
-              for="jumlah-produk"
-              class="block text-sm font-medium text-slate-700 mb-2"
-              >Jumlah Produk Jadi</label
-            ><input
-              type="number"
-              id="jumlah-produk"
-              placeholder="Contoh: 50"
-              class="w-full p-3 border-2 border-slate-300 rounded-lg focus:ring-4 focus:ring-blue-200 focus:border-blue-500"
-            />
-          </div>
-          <div class="mt-6">
-            <label class="block text-sm font-medium text-slate-700 mb-2"
-              >Margin Keuntungan Pilihan (Opsional)</label
-            >
-            <div id="margin-list" class="space-y-2"></div>
-            <button
-              id="tambah-margin-btn"
-              class="mt-2 w-full text-sm bg-slate-100 text-slate-600 font-semibold py-2 px-4 rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2"
-            >
-              + Tambah Margin Pilihan
-            </button>
-          </div>
-        </div>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200">
+                <h2 class="text-2xl font-semibold text-slate-700 flex items-center gap-3"><span class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">5</span> Hasil Produksi & Margin</h2>
+                 <p class="text-slate-500 mt-2 mb-4 border-b pb-4">Isi jumlah produk jadi dan target margin keuntungan Anda.</p>
+                <div><label for="jumlah-produk" class="block text-sm font-medium text-slate-700 mb-2">Jumlah Produk Jadi</label><input type="number" id="jumlah-produk" placeholder="Contoh: 50" class="w-full p-3 border-2 border-slate-300 rounded-lg focus:ring-4 focus:ring-blue-200 focus:border-blue-500"></div>
+                <div class="mt-6"><label class="block text-sm font-medium text-slate-700 mb-2">Margin Keuntungan Pilihan (Opsional)</label><div id="margin-list" class="space-y-2"></div><button id="tambah-margin-btn" class="mt-2 w-full text-sm bg-slate-100 text-slate-600 font-semibold py-2 px-4 rounded-lg hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">+ Tambah Margin Pilihan</button></div>
+            </div>
 
-        <button
-          id="buat-laporan-btn"
-          class="w-full bg-blue-600 text-white font-bold py-5 px-4 text-xl rounded-xl hover:bg-blue-700 transition-colors shadow-xl flex items-center justify-center gap-3"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-            />
-          </svg>
-          Buat Laporan HPP
-        </button>
-        <p
-          id="error-message"
-          class="text-red-500 text-center mt-4 font-medium hidden"
-        ></p>
-      </main>
+            <button id="buat-laporan-btn" class="w-full bg-blue-600 text-white font-bold py-5 px-4 text-xl rounded-xl hover:bg-blue-700 transition-colors shadow-xl flex items-center justify-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg> Buat Laporan HPP</button>
+            <p id="error-message" class="text-red-500 text-center mt-4 font-medium hidden"></p>
+        </main>
 
-      <footer class="text-center text-slate-500 text-base mt-12 pb-4 space-y-2">
-        <div class="flex justify-center items-center gap-3">
-          <img src="iconstimata.png" alt="Logo STIMATA" class="h-8 w-8" />
-          <p class="font-semibold text-slate-600">
-            Created BY Tim PMP STIMATA 2025
-          </p>
-        </div>
-        <p class="text-sm">Dibuat dengan ❤️ untuk UMKM Indonesia</p>
-      </footer>
+        <footer class="text-center text-slate-500 text-base mt-12 pb-4 space-y-2">
+            <div class="flex justify-center items-center gap-3"><img src="iconstimata.png" alt="Logo STIMATA" class="h-8 w-8"> <p class="font-semibold text-slate-600">Created BY Tim PMP STIMATA 2025</p></div>
+            <p class="text-sm">Dibuat dengan ❤️ untuk UMKM Indonesia</p>
+        </footer>
     </div>
 
-    <div
-      id="bahan-baku-template"
-      class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"
-    >
-      <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end">
-        <div class="col-span-12">
-          <label class="text-sm font-medium text-slate-600">Nama Bahan</label
-          ><input
-            type="text"
-            name="nama-bahan"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
+    <div id="bahan-baku-template" class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"> <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end"> <div class="col-span-12"><label class="text-sm font-medium text-slate-600">Nama Bahan</label><input type="text" name="nama-bahan" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-6 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Jml Pakai</label><input type="number" name="jumlah-pakai" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-6 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Satuan</label><select name="satuan-pakai" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="g">gram</option><option value="kg">kg</option><option value="ml">ml</option><option value="l">liter</option><option value="pcs">pcs</option><option value="butir">butir</option></select></div> <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Harga Beli</label><input type="number" name="harga-beli" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Jml Beli</label><input type="number" name="jumlah-beli" value="1" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Satuan Beli</label><select name="satuan-beli" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="kg">kg</option><option value="g">gram</option><option value="l">liter</option><option value="ml">ml</option><option value="pcs">pcs</option><option value="butir">butir</option></select></div> <div class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"> <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right"><span class="text-sm text-slate-600">Subtotal: </span><span name="subtotal" class="font-bold text-slate-800" data-value="0">Rp 0</span></div> <button name="hitung-subtotal" class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2">✅ Kunci</button> <button name="hapus-item" class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"> Hapus</button> </div> </div> </div>
+    <div id="tenaga-kerja-template" class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"> <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end"> <div class="col-span-12 sm:col-span-4"><label class="text-sm font-medium text-slate-600">Deskripsi Pekerjaan</label><input type="text" name="nama-pekerjaan" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-4 sm:col-span-2"><label class="text-sm font-medium text-slate-600">Jml Orang</label><input type="number" name="jumlah-pekerja" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-8 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Gaji / Upah (Rp)</label><input type="number" name="gaji-pekerja" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-12 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Satuan Waktu</label><select name="satuan-gaji" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="jam">per Jam</option><option value="hari">per Hari</option><option value="bulan">per Bulan</option></select></div> <div class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"> <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right"><span class="text-sm text-slate-600">Subtotal: </span><span name="subtotal" class="font-bold text-slate-800" data-value="0">Rp 0</span></div> <button name="hitung-subtotal" class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2">✅ Kunci</button> <button name="hapus-item" class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700">Hapus</button> </div> </div> </div>
+    <div id="penyusutan-template" class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"> <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end"> <div class="col-span-12 sm:col-span-5"><label class="text-sm font-medium text-slate-600">Nama Aset</label><input type="text" name="nama-aset" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-7 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Harga Beli (Rp)</label><input type="number" name="harga-aset" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-5 sm:col-span-2"><label class="text-sm font-medium text-slate-600">Umur Pakai</label><input type="number" name="umur-aset" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div> <div class="col-span-7 sm:col-span-2"><label class="text-sm font-medium text-slate-600">Satuan</label><select name="satuan-umur" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="hari">Hari</option><option value="bulan">Bulan</option><option value="tahun">Tahun</option></select></div> <div class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"> <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right"><span name="subtotal" class="font-bold text-slate-800" data-value="0">Rp 0</span></div> <button name="hitung-subtotal" class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2">✅ Kunci</button> <button name="hapus-item" class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700">Hapus</button> </div> </div> </div>
+
+    <div id="biaya-pendukung-template" class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden">
+        <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end">
+            <div class="col-span-12"><label class="text-sm font-medium text-slate-600">Nama Biaya</label><input type="text" name="nama-biaya-pendukung" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div>
+            <div class="col-span-6 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Jml Pakai</label><input type="number" name="jumlah-pakai-pendukung" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div>
+            <div class="col-span-6 sm:col-span-3"><label class="text-sm font-medium text-slate-600">Satuan</label><select name="satuan-pakai-pendukung" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="jam">Jam</option><option value="hari">Hari</option><option value="bulan">Bulan</option><option value="pcs">pcs</option><option value="kWh">kWh</option><option value="meter">meter</option><option value="lembar">lembar</option><option value="roll">roll</option><option value="unit">unit</option></select></div>
+            <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Harga Beli</label><input type="number" name="harga-beli-pendukung" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div>
+            <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Jml Beli</label><input type="number" name="jumlah-beli-pendukung" value="1" class="mt-1 w-full p-2 border border-slate-300 rounded-md"></div>
+            <div class="col-span-4"><label class="text-sm font-medium text-slate-600">Satuan Beli</label><select name="satuan-beli-pendukung" class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"><option value="bulan">Bulan</option><option value="hari">Hari</option><option value="jam">Jam</option><option value="pcs">pcs</option><option value="kWh">kWh</option><option value="meter">meter</option><option value="lembar">lembar</option><option value="roll">roll</option><option value="unit">unit</option></select></div>
+            <div class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3">
+                <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right"><span class="text-sm text-slate-600">Subtotal: </span><span name="subtotal" class="font-bold text-slate-800" data-value="0">Rp 0</span></div>
+                <button name="hitung-subtotal" class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2">✅ Kunci</button>
+                <button name="hapus-item" class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"> Hapus</button>
+            </div>
         </div>
-        <div class="col-span-6 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600">Jml Pakai</label
-          ><input
-            type="number"
-            name="jumlah-pakai"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-6 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600">Satuan</label
-          ><select
-            name="satuan-pakai"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"
-          >
-            <option value="g">gram</option>
-            <option value="kg">kg</option>
-            <option value="ml">ml</option>
-            <option value="l">liter</option>
-            <option value="pcs">pcs</option>
-            <option value="butir">butir</option>
-          </select>
-        </div>
-        <div class="col-span-4">
-          <label class="text-sm font-medium text-slate-600">Harga Beli</label
-          ><input
-            type="number"
-            name="harga-beli"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-4">
-          <label class="text-sm font-medium text-slate-600">Jml Beli</label
-          ><input
-            type="number"
-            name="jumlah-beli"
-            value="1"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-4">
-          <label class="text-sm font-medium text-slate-600">Satuan Beli</label
-          ><select
-            name="satuan-beli"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"
-          >
-            <option value="kg">kg</option>
-            <option value="g">gram</option>
-            <option value="l">liter</option>
-            <option value="ml">ml</option>
-            <option value="pcs">pcs</option>
-            <option value="butir">butir</option>
-          </select>
-        </div>
-        <div
-          class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"
-        >
-          <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right">
-            <span class="text-sm text-slate-600">Subtotal: </span
-            ><span
-              name="subtotal"
-              class="font-bold text-slate-800"
-              data-value="0"
-              >Rp 0</span
-            >
-          </div>
-          <button
-            name="hitung-subtotal"
-            class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2"
-          >
-            ✅ Kunci
-          </button>
-          <button
-            name="hapus-item"
-            class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"
-          >
-            Hapus
-          </button>
-        </div>
-      </div>
     </div>
-    <div
-      id="tenaga-kerja-template"
-      class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"
-    >
-      <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end">
-        <div class="col-span-12 sm:col-span-4">
-          <label class="text-sm font-medium text-slate-600"
-            >Deskripsi Pekerjaan</label
-          ><input
-            type="text"
-            name="nama-pekerjaan"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-4 sm:col-span-2">
-          <label class="text-sm font-medium text-slate-600">Jml Orang</label
-          ><input
-            type="number"
-            name="jumlah-pekerja"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-8 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600"
-            >Gaji / Upah (Rp)</label
-          ><input
-            type="number"
-            name="gaji-pekerja"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-12 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600">Satuan Waktu</label
-          ><select
-            name="satuan-gaji"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"
-          >
-            <option value="jam">per Jam</option>
-            <option value="hari">per Hari</option>
-            <option value="bulan">per Bulan</option>
-          </select>
-        </div>
-        <div
-          class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"
-        >
-          <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right">
-            <span class="text-sm text-slate-600">Subtotal: </span
-            ><span
-              name="subtotal"
-              class="font-bold text-slate-800"
-              data-value="0"
-              >Rp 0</span
-            >
-          </div>
-          <button
-            name="hitung-subtotal"
-            class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2"
-          >
-            ✅ Kunci
-          </button>
-          <button
-            name="hapus-item"
-            class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"
-          >
-            Hapus
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      id="penyusutan-template"
-      class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"
-    >
-      <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end">
-        <div class="col-span-12 sm:col-span-5">
-          <label class="text-sm font-medium text-slate-600">Nama Aset</label
-          ><input
-            type="text"
-            name="nama-aset"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-7 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600"
-            >Harga Beli (Rp)</label
-          ><input
-            type="number"
-            name="harga-aset"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-5 sm:col-span-2">
-          <label class="text-sm font-medium text-slate-600">Umur Pakai</label
-          ><input
-            type="number"
-            name="umur-aset"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-7 sm:col-span-2">
-          <label class="text-sm font-medium text-slate-600">Satuan</label
-          ><select
-            name="satuan-umur"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md bg-white"
-          >
-            <option value="hari">Hari</option>
-            <option value="bulan">Bulan</option>
-            <option value="tahun">Tahun</option>
-          </select>
-        </div>
-        <div
-          class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"
-        >
-          <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right">
-            <span
-              name="subtotal"
-              class="font-bold text-slate-800"
-              data-value="0"
-              >Rp 0</span
-            >
-          </div>
-          <button
-            name="hitung-subtotal"
-            class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2"
-          >
-            ✅ Kunci
-          </button>
-          <button
-            name="hapus-item"
-            class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"
-          >
-            Hapus
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      id="biaya-pendukung-template"
-      class="p-4 border-2 border-dashed rounded-lg bg-slate-50 hidden"
-    >
-      <div class="grid grid-cols-12 gap-x-3 gap-y-4 items-end">
-        <div class="col-span-12 sm:col-span-4">
-          <label class="text-sm font-medium text-slate-600">Nama Biaya</label
-          ><input
-            type="text"
-            name="nama-biaya"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-4 sm:col-span-2">
-          <label class="text-sm font-medium text-slate-600">Jumlah</label
-          ><input
-            type="number"
-            name="jumlah-pendukung"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-8 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600">Satuan</label
-          ><input
-            type="text"
-            name="satuan-pendukung"
-            placeholder="cth: pcs, kWh"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div class="col-span-12 sm:col-span-3">
-          <label class="text-sm font-medium text-slate-600">Harga Satuan</label
-          ><input
-            type="number"
-            name="harga-satuan-pendukung"
-            class="mt-1 w-full p-2 border border-slate-300 rounded-md"
-          />
-        </div>
-        <div
-          class="col-span-12 mt-2 border-t pt-4 flex flex-col sm:flex-row gap-3"
-        >
-          <div class="flex-grow bg-slate-200 p-2 rounded-lg text-right">
-            <span class="text-sm text-slate-600">Subtotal: </span
-            ><span
-              name="subtotal"
-              class="font-bold text-slate-800"
-              data-value="0"
-              >Rp 0</span
-            >
-          </div>
-          <button
-            name="hitung-subtotal"
-            class="hitung-subtotal-btn w-full sm:w-auto px-4 h-10 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 text-sm flex items-center justify-center gap-2"
-          >
-            ✅ Kunci
-          </button>
-          <button
-            name="hapus-item"
-            class="w-full sm:w-auto px-3 h-10 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700"
-          >
-            Hapus
-          </button>
-        </div>
-      </div>
-    </div>
-    <div
-      id="margin-template"
-      class="grid grid-cols-12 gap-2 items-center hidden"
-    >
-      <div class="col-span-6">
-        <input
-          type="text"
-          name="nama-margin"
-          placeholder="Nama Margin (cth: Reseller)"
-          class="w-full p-2 border border-slate-300 rounded-md text-sm"
-        />
-      </div>
-      <div class="col-span-4">
-        <input
-          type="number"
-          name="persen-margin"
-          placeholder="Persen (%)"
-          class="w-full p-2 border border-slate-300 rounded-md text-sm"
-        />
-      </div>
-      <div class="col-span-2">
-        <button
-          name="hapus-item"
-          class="w-full h-10 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 text-sm"
-        >
-          Hapus
-        </button>
-      </div>
-    </div>
+
+    <div id="margin-template" class="grid grid-cols-12 gap-2 items-center hidden"> <div class="col-span-6"><input type="text" name="nama-margin" placeholder="Nama Margin (cth: Reseller)" class="w-full p-2 border border-slate-300 rounded-md text-sm"></div> <div class="col-span-4"><input type="number" name="persen-margin" placeholder="Persen (%)" class="w-full p-2 border border-slate-300 rounded-md text-sm"></div> <div class="col-span-2"><button name="hapus-item" class="w-full h-10 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 text-sm">Hapus</button></div> </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const formatRupiah = (angka) =>
-          new Intl.NumberFormat("id-ID", {
-            style: "currency",
-            currency: "IDR",
-            minimumFractionDigits: 0,
-          }).format(angka);
-        const unitConversion = {
-          g: 1,
-          kg: 1000,
-          ml: 1,
-          l: 1000,
-          pcs: 1,
-          butir: 1,
-        };
-        const unitGroups = {
-          g: "weight",
-          kg: "weight",
-          ml: "volume",
-          l: "volume",
-          pcs: "piece",
-          butir: "piece",
-        };
+    document.addEventListener('DOMContentLoaded', function() {
+        // ### KODE JAVASCRIPT DIPERBARUI ###
+        const formatRupiah = (angka) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
 
-        const logoInput = document.getElementById("logo-usaha");
-        logoInput.addEventListener("change", function () {
-          if (this.files && this.files[0]) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              document.getElementById("logo-preview").src = e.target.result;
-              document
-                .getElementById("logo-preview")
-                .classList.remove("hidden");
-            };
-            reader.readAsDataURL(this.files[0]);
-          }
+        // Tambahkan unit waktu ke list konversi
+        const unitConversion = {'g':1, 'kg':1000, 'ml':1, 'l':1000, 'pcs':1, 'butir':1, 'kWh':1, 'meter':1, 'lembar':1, 'roll':1, 'unit':1, 'jam': 1, 'hari': 24, 'bulan': 720 };
+        const unitGroups = {'g':'weight', 'kg':'weight', 'ml':'volume', 'l':'volume', 'pcs':'piece', 'butir':'piece', 'kWh':'energy', 'meter':'length', 'lembar':'sheet', 'roll':'roll', 'unit':'piece', 'jam':'time', 'hari':'time', 'bulan':'time'};
+
+        const logoInput = document.getElementById('logo-usaha');
+        logoInput.addEventListener('change', function() { if (this.files && this.files[0]) { const reader = new FileReader(); reader.onload = (e) => { document.getElementById('logo-preview').src = e.target.result; document.getElementById('logo-preview').classList.remove('hidden'); }; reader.readAsDataURL(this.files[0]); } });
+
+        function setupDynamicList(listId, templateId, addButtonId, calculationFn, addInitialRow = true) {
+            const listContainer = document.getElementById(listId); const templateNode = document.getElementById(templateId); const addButton = document.getElementById(addButtonId);
+            const addRow = () => { const clone = templateNode.cloneNode(true); clone.classList.remove('hidden'); listContainer.appendChild(clone); };
+            addButton.addEventListener('click', addRow);
+            listContainer.addEventListener('click', (e) => { const row = e.target.closest('.border-2'); if (!row) return; if (e.target.name === 'hapus-item') row.remove(); else if (e.target.name === 'hitung-subtotal' && calculationFn) calculationFn(row); });
+            if (addInitialRow) addRow();
+        }
+
+        // Fungsi ini sekarang lebih generik dan bisa dipakai oleh Bahan Baku dan Biaya Pendukung
+        function calculateGenericSubtotal(row, config) {
+            try {
+                const nama = row.querySelector(`[name=${config.nama}]`).value.trim(); if (!nama) throw new Error(`${config.namaLabel} tidak boleh kosong.`);
+                const subtotalEl = row.querySelector('[name=subtotal]'), inputs = row.querySelectorAll('input, select'), hitungBtn = row.querySelector('[name=hitung-subtotal]');
+                const jumlahPakai = parseFloat(row.querySelector(`[name=${config.jmlPakai}]`).value) || 0;
+                const satuanPakai = row.querySelector(`[name=${config.satuanPakai}]`).value;
+                const hargaBeli = parseFloat(row.querySelector(`[name=${config.hargaBeli}]`).value) || 0;
+                const jumlahBeli = parseFloat(row.querySelector(`[name=${config.jmlBeli}]`).value) || 1;
+                const satuanBeli = row.querySelector(`[name=${config.satuanBeli}]`).value;
+                if (unitGroups[satuanPakai] !== unitGroups[satuanBeli]) throw new Error(`Satuan tidak cocok untuk "${nama}". Contoh: jangan konversi dari kg ke jam.`);
+                const hargaDasar = hargaBeli / (jumlahBeli * unitConversion[satuanBeli]);
+                if (!isFinite(hargaDasar)) throw new Error(`Harga beli untuk "${nama}" tidak valid.`);
+                const subtotal = (jumlahPakai * unitConversion[satuanPakai]) * hargaDasar;
+                subtotalEl.textContent = formatRupiah(subtotal); subtotalEl.dataset.value = subtotal;
+                row.classList.add('row-calculated');
+                inputs.forEach(input => input.disabled = true); if (hitungBtn) hitungBtn.disabled = true;
+            } catch (error) { alert(`Error: ${error.message}`); }
+        }
+
+        function calculateTenagaKerja(row) { try { const nama = row.querySelector('[name=nama-pekerjaan]').value.trim(); if (!nama) throw new Error("Deskripsi pekerjaan tidak boleh kosong."); const subtotalEl = row.querySelector('[name=subtotal]'), inputs = row.querySelectorAll('input, select'), hitungBtn = row.querySelector('[name=hitung-subtotal]'); const jumlahPekerja = parseFloat(row.querySelector('[name=jumlah-pekerja]').value) || 0; const gajiPekerja = parseFloat(row.querySelector('[name=gaji-pekerja]').value) || 0; const subtotal = jumlahPekerja * gajiPekerja; subtotalEl.textContent = formatRupiah(subtotal); subtotalEl.dataset.value = subtotal; row.classList.add('row-calculated'); inputs.forEach(input => input.disabled = true); if (hitungBtn) hitungBtn.disabled = true; } catch (error) { alert(`Error: ${error.message}`); } }
+        function calculatePenyusutan(row) { try { const nama = row.querySelector('[name=nama-aset]').value.trim(); if (!nama) throw new Error("Nama aset tidak boleh kosong."); const subtotalEl = row.querySelector('[name=subtotal]'), inputs = row.querySelectorAll('input, select'), hitungBtn = row.querySelector('[name=hitung-subtotal]'); const hargaAset = parseFloat(row.querySelector('[name=harga-aset]').value) || 0; const umurAset = parseFloat(row.querySelector('[name=umur-aset]').value) || 1; const satuanUmur = row.querySelector('[name=satuan-umur]').value; if (umurAset <= 0) throw new Error("Umur pakai aset harus lebih dari 0."); let biayaPerSatuan = hargaAset / umurAset; let biayaPerHari = 0; if (satuanUmur === 'tahun') { biayaPerHari = biayaPerSatuan / 365; } else if (satuanUmur === 'bulan') { biayaPerHari = biayaPerSatuan / 30; } else { biayaPerHari = biayaPerSatuan; } subtotalEl.innerHTML = `${formatRupiah(biayaPerSatuan)} / ${satuanUmur} <span class="text-slate-500 text-xs">(${formatRupiah(biayaPerHari)} / hari)</span>`; subtotalEl.dataset.value = biayaPerHari; row.classList.add('row-calculated'); inputs.forEach(input => input.disabled = true); if (hitungBtn) hitungBtn.disabled = true; } catch (error) { alert(`Error: ${error.message}`); } }
+
+        const configBahanBaku = { nama: 'nama-bahan', namaLabel: 'Nama Bahan', jmlPakai: 'jumlah-pakai', satuanPakai: 'satuan-pakai', hargaBeli: 'harga-beli', jmlBeli: 'jumlah-beli', satuanBeli: 'satuan-beli' };
+        const configPendukung = { nama: 'nama-biaya-pendukung', namaLabel: 'Nama Biaya', jmlPakai: 'jumlah-pakai-pendukung', satuanPakai: 'satuan-pakai-pendukung', hargaBeli: 'harga-beli-pendukung', jmlBeli: 'jumlah-beli-pendukung', satuanBeli: 'satuan-beli-pendukung' };
+
+        setupDynamicList('bahan-baku-list', 'bahan-baku-template', 'tambah-bahan-btn', (row) => calculateGenericSubtotal(row, configBahanBaku));
+        setupDynamicList('tenaga-kerja-list', 'tenaga-kerja-template', 'tambah-tenaga-kerja-btn', calculateTenagaKerja);
+        setupDynamicList('penyusutan-list', 'penyusutan-template', 'tambah-penyusutan-btn', calculatePenyusutan);
+        setupDynamicList('biaya-pendukung-list', 'biaya-pendukung-template', 'tambah-biaya-btn', (row) => calculateGenericSubtotal(row, configPendukung));
+        setupDynamicList('margin-list', 'margin-template', 'tambah-margin-btn', null, false);
+
+        document.getElementById('buat-laporan-btn').addEventListener('click', function() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.classList.add('hidden');
+            try {
+                const namaProduk = document.getElementById('nama-produk').value.trim() || "Produk Anda";
+                const logoDataUrl = document.getElementById('logo-preview').src;
+                const customMargins = Array.from(document.querySelectorAll('#margin-list .grid')).map(row => { const nama = row.querySelector('[name=nama-margin]').value.trim() || `Pilihan`; const persen = parseFloat(row.querySelector('[name=persen-margin]').value) || 0; return { p: persen / 100, l: `${nama} (${persen}%)`, c: '#ca8a04' }; }).filter(m => m.p > 0);
+                const rincianBahan = [], rincianTenagaKerja = [], rincianPenyusutan = [], rincianPendukung = [];
+
+                document.querySelectorAll('#bahan-baku-list .row-calculated').forEach(row => { rincianBahan.push({nama: row.querySelector('[name=nama-bahan]').value, rincian: `${row.querySelector('[name=jumlah-pakai]').value} ${row.querySelector('[name=satuan-pakai]').value}`, subtotal: parseFloat(row.querySelector('[name=subtotal]').dataset.value) || 0}); });
+                document.querySelectorAll('#tenaga-kerja-list .row-calculated').forEach(row => { rincianTenagaKerja.push({nama: row.querySelector('[name=nama-pekerjaan]').value, rincian: `${row.querySelector('[name=jumlah-pekerja]').value} orang @ ${formatRupiah(parseFloat(row.querySelector('[name=gaji-pekerja]').value)||0)} / ${row.querySelector('[name=satuan-gaji]').value}`, subtotal: parseFloat(row.querySelector('[name=subtotal]').dataset.value) || 0}); });
+                document.querySelectorAll('#penyusutan-list .row-calculated').forEach(row => { const hargaAset = parseFloat(row.querySelector('[name=harga-aset]').value) || 0; const umurAset = parseFloat(row.querySelector('[name=umur-aset]').value) || 1; const satuanUmur = row.querySelector('[name=satuan-umur]').value; const subtotalPerSatuan = hargaAset / umurAset; const subtotalHarian = parseFloat(row.querySelector('[name=subtotal]').dataset.value) || 0; rincianPenyusutan.push({ nama: row.querySelector('[name=nama-aset]').value, rincian: `(Total ${formatRupiah(hargaAset)} / ${umurAset} ${satuanUmur})`, subtotal: subtotalPerSatuan, subtotal_for_hpp: subtotalHarian }); });
+
+                // Perbarui cara membaca rincian pendukung
+                document.querySelectorAll('#biaya-pendukung-list .row-calculated').forEach(row => { rincianPendukung.push({nama: row.querySelector('[name=nama-biaya-pendukung]').value, rincian: `${row.querySelector('[name=jumlah-pakai-pendukung]').value} ${row.querySelector('[name=satuan-pakai-pendukung]').value.trim()}`, subtotal: parseFloat(row.querySelector('[name=subtotal]').dataset.value) || 0}); });
+
+                const totalBiayaBahanBaku = rincianBahan.reduce((s,i) => s + i.subtotal, 0);
+                const totalBiayaTenagaKerja = rincianTenagaKerja.reduce((s,i) => s + i.subtotal, 0);
+                const totalBiayaPenyusutan = rincianPenyusutan.reduce((s,i) => s + i.subtotal_for_hpp, 0);
+                const totalBiayaPendukung = rincianPendukung.reduce((s,i) => s + i.subtotal, 0);
+                const totalBiayaProduksi = totalBiayaBahanBaku + totalBiayaTenagaKerja + totalBiayaPenyusutan + totalBiayaPendukung;
+
+                if (totalBiayaProduksi === 0) throw new Error("Belum ada biaya yang dihitung. Mohon klik tombol 'Kunci' pada setiap baris yang sudah diisi.");
+                const jumlahProduk = parseFloat(document.getElementById('jumlah-produk').value) || 0;
+                if (jumlahProduk <= 0) throw new Error("Jumlah produk harus lebih dari 0.");
+                const hpp = totalBiayaProduksi / jumlahProduk;
+
+                const reportHTML = generateReportHTML({rincianBahan, rincianTenagaKerja, rincianPenyusutan, rincianPendukung, totalBiayaProduksi, hpp, jumlahProduk, namaProduk, logoDataUrl, customMargins});
+                const reportWindow = window.open('', '_blank');
+                reportWindow.document.write(reportHTML);
+            } catch (error) { errorMessage.textContent = `Terjadi Kesalahan: ${error.message}`; errorMessage.classList.remove('hidden'); }
         });
 
-        function setupDynamicList(
-          listId,
-          templateId,
-          addButtonId,
-          calculationFn,
-          addInitialRow = true
-        ) {
-          const listContainer = document.getElementById(listId);
-          const templateNode = document.getElementById(templateId);
-          const addButton = document.getElementById(addButtonId);
-          const addRow = () => {
-            const clone = templateNode.cloneNode(true);
-            clone.classList.remove("hidden");
-            listContainer.appendChild(clone);
-          };
-          addButton.addEventListener("click", addRow);
-          listContainer.addEventListener("click", (e) => {
-            const row = e.target.closest(".border-2");
-            if (!row) return;
-            if (e.target.name === "hapus-item") row.remove();
-            else if (e.target.name === "hitung-subtotal" && calculationFn)
-              calculationFn(row);
-          });
-          if (addInitialRow) addRow();
-        }
-
-        function calculateBahanBaku(row) {
-          try {
-            const nama = row.querySelector("[name=nama-bahan]").value.trim();
-            if (!nama) throw new Error("Nama bahan tidak boleh kosong.");
-            const subtotalEl = row.querySelector("[name=subtotal]"),
-              inputs = row.querySelectorAll("input, select"),
-              hitungBtn = row.querySelector("[name=hitung-subtotal]");
-            const jumlahPakai =
-                parseFloat(row.querySelector("[name=jumlah-pakai]").value) || 0,
-              satuanPakai = row.querySelector("[name=satuan-pakai]").value,
-              hargaBeli =
-                parseFloat(row.querySelector("[name=harga-beli]").value) || 0,
-              jumlahBeli =
-                parseFloat(row.querySelector("[name=jumlah-beli]").value) || 1,
-              satuanBeli = row.querySelector("[name=satuan-beli]").value;
-            if (unitGroups[satuanPakai] !== unitGroups[satuanBeli])
-              throw new Error(`Satuan tidak cocok untuk "${nama}".`);
-            const hargaDasar =
-              hargaBeli / (jumlahBeli * unitConversion[satuanBeli]);
-            if (!isFinite(hargaDasar))
-              throw new Error(`Harga beli untuk "${nama}" tidak valid.`);
-            const subtotal =
-              jumlahPakai * unitConversion[satuanPakai] * hargaDasar;
-            subtotalEl.textContent = formatRupiah(subtotal);
-            subtotalEl.dataset.value = subtotal;
-            row.classList.add("row-calculated");
-            inputs.forEach((input) => (input.disabled = true));
-            if (hitungBtn) hitungBtn.disabled = true;
-          } catch (error) {
-            alert(`Error: ${error.message}`);
-          }
-        }
-        function calculateTenagaKerja(row) {
-          try {
-            const nama = row
-              .querySelector("[name=nama-pekerjaan]")
-              .value.trim();
-            if (!nama)
-              throw new Error("Deskripsi pekerjaan tidak boleh kosong.");
-            const subtotalEl = row.querySelector("[name=subtotal]"),
-              inputs = row.querySelectorAll("input, select"),
-              hitungBtn = row.querySelector("[name=hitung-subtotal]");
-            const jumlahPekerja =
-              parseFloat(row.querySelector("[name=jumlah-pekerja]").value) || 0;
-            const gajiPekerja =
-              parseFloat(row.querySelector("[name=gaji-pekerja]").value) || 0;
-            const subtotal = jumlahPekerja * gajiPekerja;
-            subtotalEl.textContent = formatRupiah(subtotal);
-            subtotalEl.dataset.value = subtotal;
-            row.classList.add("row-calculated");
-            inputs.forEach((input) => (input.disabled = true));
-            if (hitungBtn) hitungBtn.disabled = true;
-          } catch (error) {
-            alert(`Error: ${error.message}`);
-          }
-        }
-        function calculatePenyusutan(row) {
-          try {
-            const nama = row.querySelector("[name=nama-aset]").value.trim();
-            if (!nama) throw new Error("Nama aset tidak boleh kosong.");
-            const subtotalEl = row.querySelector("[name=subtotal]"),
-              inputs = row.querySelectorAll("input, select"),
-              hitungBtn = row.querySelector("[name=hitung-subtotal]");
-            const hargaAset =
-              parseFloat(row.querySelector("[name=harga-aset]").value) || 0;
-            const umurAset =
-              parseFloat(row.querySelector("[name=umur-aset]").value) || 1;
-            const satuanUmur = row.querySelector("[name=satuan-umur]").value;
-            if (umurAset <= 0)
-              throw new Error("Umur pakai aset harus lebih dari 0.");
-            let biayaPerSatuan = hargaAset / umurAset;
-            let biayaPerHari = 0;
-            if (satuanUmur === "tahun") {
-              biayaPerHari = biayaPerSatuan / 365;
-            } else if (satuanUmur === "bulan") {
-              biayaPerHari = biayaPerSatuan / 30;
-            } else {
-              biayaPerHari = biayaPerSatuan;
-            }
-            subtotalEl.innerHTML = `${formatRupiah(
-              biayaPerSatuan
-            )} / ${satuanUmur} <span class="text-slate-500 text-xs">(${formatRupiah(
-              biayaPerHari
-            )} / hari)</span>`;
-            subtotalEl.dataset.value = biayaPerHari;
-            row.classList.add("row-calculated");
-            inputs.forEach((input) => (input.disabled = true));
-            if (hitungBtn) hitungBtn.disabled = true;
-          } catch (error) {
-            alert(`Error: ${error.message}`);
-          }
-        }
-        function calculatePendukung(row) {
-          try {
-            const nama = row.querySelector("[name=nama-biaya]").value.trim();
-            if (!nama) throw new Error("Nama biaya tidak boleh kosong.");
-            const subtotalEl = row.querySelector("[name=subtotal]"),
-              inputs = row.querySelectorAll("input, select"),
-              hitungBtn = row.querySelector("[name=hitung-subtotal]");
-            const jumlah =
-              parseFloat(row.querySelector("[name=jumlah-pendukung]").value) ||
-              0;
-            const hargaSatuan =
-              parseFloat(
-                row.querySelector("[name=harga-satuan-pendukung]").value
-              ) || 0;
-            const subtotal = jumlah * hargaSatuan;
-            subtotalEl.textContent = formatRupiah(subtotal);
-            subtotalEl.dataset.value = subtotal;
-            row.classList.add("row-calculated");
-            inputs.forEach((input) => (input.disabled = true));
-            if (hitungBtn) hitungBtn.disabled = true;
-          } catch (error) {
-            alert(`Error: ${error.message}`);
-          }
-        }
-
-        setupDynamicList(
-          "bahan-baku-list",
-          "bahan-baku-template",
-          "tambah-bahan-btn",
-          calculateBahanBaku
-        );
-        setupDynamicList(
-          "tenaga-kerja-list",
-          "tenaga-kerja-template",
-          "tambah-tenaga-kerja-btn",
-          calculateTenagaKerja
-        );
-        setupDynamicList(
-          "penyusutan-list",
-          "penyusutan-template",
-          "tambah-penyusutan-btn",
-          calculatePenyusutan
-        );
-        setupDynamicList(
-          "biaya-pendukung-list",
-          "biaya-pendukung-template",
-          "tambah-biaya-btn",
-          calculatePendukung
-        );
-        setupDynamicList(
-          "margin-list",
-          "margin-template",
-          "tambah-margin-btn",
-          null,
-          false
-        );
-
-        document
-          .getElementById("buat-laporan-btn")
-          .addEventListener("click", function () {
-            const errorMessage = document.getElementById("error-message");
-            errorMessage.classList.add("hidden");
-            try {
-              const namaProduk =
-                document.getElementById("nama-produk").value.trim() ||
-                "Produk Anda";
-              const logoDataUrl = document.getElementById("logo-preview").src;
-              const customMargins = Array.from(
-                document.querySelectorAll("#margin-list .grid")
-              )
-                .map((row) => {
-                  const nama =
-                    row.querySelector("[name=nama-margin]").value.trim() ||
-                    `Pilihan`;
-                  const persen =
-                    parseFloat(
-                      row.querySelector("[name=persen-margin]").value
-                    ) || 0;
-                  return {
-                    p: persen / 100,
-                    l: `${nama} (${persen}%)`,
-                    c: "#ca8a04",
-                  };
-                })
-                .filter((m) => m.p > 0);
-              const rincianBahan = [],
-                rincianTenagaKerja = [],
-                rincianPenyusutan = [],
-                rincianPendukung = [];
-
-              document
-                .querySelectorAll("#bahan-baku-list .row-calculated")
-                .forEach((row) => {
-                  rincianBahan.push({
-                    nama: row.querySelector("[name=nama-bahan]").value,
-                    rincian: `${
-                      row.querySelector("[name=jumlah-pakai]").value
-                    } ${row.querySelector("[name=satuan-pakai]").value}`,
-                    subtotal:
-                      parseFloat(
-                        row.querySelector("[name=subtotal]").dataset.value
-                      ) || 0,
-                  });
-                });
-              document
-                .querySelectorAll("#tenaga-kerja-list .row-calculated")
-                .forEach((row) => {
-                  rincianTenagaKerja.push({
-                    nama: row.querySelector("[name=nama-pekerjaan]").value,
-                    rincian: `${
-                      row.querySelector("[name=jumlah-pekerja]").value
-                    } orang @ ${formatRupiah(
-                      parseFloat(
-                        row.querySelector("[name=gaji-pekerja]").value
-                      ) || 0
-                    )} / ${row.querySelector("[name=satuan-gaji]").value}`,
-                    subtotal:
-                      parseFloat(
-                        row.querySelector("[name=subtotal]").dataset.value
-                      ) || 0,
-                  });
-                });
-
-              // ### PERUBAHAN LOGIKA PENGAMBILAN DATA LAPORAN ###
-              document
-                .querySelectorAll("#penyusutan-list .row-calculated")
-                .forEach((row) => {
-                  const namaAset = row.querySelector("[name=nama-aset]").value;
-                  const hargaAset =
-                    parseFloat(row.querySelector("[name=harga-aset]").value) ||
-                    0;
-                  const umurAset =
-                    parseFloat(row.querySelector("[name=umur-aset]").value) ||
-                    1;
-                  const satuanUmur =
-                    row.querySelector("[name=satuan-umur]").value;
-                  const subtotalPerSatuan = hargaAset / umurAset;
-                  const subtotalHarian =
-                    parseFloat(
-                      row.querySelector("[name=subtotal]").dataset.value
-                    ) || 0;
-                  rincianPenyusutan.push({
-                    nama: namaAset,
-                    rincian: `(Total ${formatRupiah(
-                      hargaAset
-                    )} / ${umurAset} ${satuanUmur})`,
-                    subtotal: subtotalPerSatuan, // Tampilkan biaya per satuan pilihan
-                    subtotal_for_hpp: subtotalHarian, // Gunakan ini untuk kalkulasi total
-                  });
-                });
-
-              document
-                .querySelectorAll("#biaya-pendukung-list .row-calculated")
-                .forEach((row) => {
-                  rincianPendukung.push({
-                    nama: row.querySelector("[name=nama-biaya]").value,
-                    rincian: `${
-                      row.querySelector("[name=jumlah-pendukung]").value
-                    } ${row
-                      .querySelector("[name=satuan-pendukung]")
-                      .value.trim()}`,
-                    subtotal:
-                      parseFloat(
-                        row.querySelector("[name=subtotal]").dataset.value
-                      ) || 0,
-                  });
-                });
-
-              const totalBiayaBahanBaku = rincianBahan.reduce(
-                (s, i) => s + i.subtotal,
-                0
-              );
-              const totalBiayaTenagaKerja = rincianTenagaKerja.reduce(
-                (s, i) => s + i.subtotal,
-                0
-              );
-              const totalBiayaPenyusutan = rincianPenyusutan.reduce(
-                (s, i) => s + i.subtotal_for_hpp,
-                0
-              );
-              const totalBiayaPendukung = rincianPendukung.reduce(
-                (s, i) => s + i.subtotal,
-                0
-              );
-              const totalBiayaProduksi =
-                totalBiayaBahanBaku +
-                totalBiayaTenagaKerja +
-                totalBiayaPenyusutan +
-                totalBiayaPendukung;
-
-              if (totalBiayaProduksi === 0)
-                throw new Error(
-                  "Belum ada biaya yang dihitung. Mohon klik tombol 'Kunci' pada setiap baris yang sudah diisi."
-                );
-              const jumlahProduk =
-                parseFloat(document.getElementById("jumlah-produk").value) || 0;
-              if (jumlahProduk <= 0)
-                throw new Error("Jumlah produk harus lebih dari 0.");
-              const hpp = totalBiayaProduksi / jumlahProduk;
-
-              const reportHTML = generateReportHTML({
-                rincianBahan,
-                rincianTenagaKerja,
-                rincianPenyusutan,
-                rincianPendukung,
-                totalBiayaProduksi,
-                hpp,
-                jumlahProduk,
-                namaProduk,
-                logoDataUrl,
-                customMargins,
-              });
-              const reportWindow = window.open("", "_blank");
-              reportWindow.document.write(reportHTML);
-            } catch (error) {
-              errorMessage.textContent = `Terjadi Kesalahan: ${error.message}`;
-              errorMessage.classList.remove("hidden");
-            }
-          });
-
-        // ### FUNGSI PEMBUATAN LAPORAN (DIPERBARUI) ###
         function generateReportHTML(data) {
-          const {
-            rincianBahan,
-            rincianTenagaKerja,
-            rincianPenyusutan,
-            rincianPendukung,
-            totalBiayaProduksi,
-            hpp,
-            jumlahProduk,
-            namaProduk,
-            logoDataUrl,
-            customMargins,
-          } = data;
-          const logoHTML =
-            logoDataUrl && logoDataUrl.startsWith("data:image")
-              ? `<img src="${logoDataUrl}" alt="Logo Usaha" style="max-width: 80px; max-height: 80px; object-fit: contain; margin-right: 1.5rem; border-radius: 0.5rem;">`
-              : "";
-
-          const totalBiayaBahanBaku = rincianBahan.reduce(
-            (s, i) => s + i.subtotal,
-            0
-          );
-          const totalBiayaTenagaKerja = rincianTenagaKerja.reduce(
-            (s, i) => s + i.subtotal,
-            0
-          );
-          const totalBiayaPenyusutanUntukHPP = rincianPenyusutan.reduce(
-            (s, i) => s + i.subtotal_for_hpp,
-            0
-          );
-          const totalBiayaPendukung = rincianPendukung.reduce(
-            (s, i) => s + i.subtotal,
-            0
-          );
-
-          const buatTabelRincian = (judul, dataRincian, total) => {
-            if (dataRincian.length === 0) return "";
-            let rows = dataRincian
-              .map(
-                (item) =>
-                  `<tr><td>${item.nama}</td><td>${
-                    item.rincian
-                  }</td><td class="text-right">${formatRupiah(
-                    item.subtotal
-                  )}</td></tr>`
-              )
-              .join("");
-            return `<h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem;">${judul}</h3><table class="report-table"><thead><tr><th>Nama / Deskripsi</th><th>Rincian</th><th class="text-right">Subtotal</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="2">Total ${judul}</td><td class="text-right">${formatRupiah(
-              total
-            )}</td></tr></tfoot></table>`;
-          };
-
-          // Tabel penyusutan dibuat khusus untuk menampilkan sesuai pilihan
-          const buatTabelPenyusutan = () => {
-            if (rincianPenyusutan.length === 0) return "";
-            let rows = rincianPenyusutan
-              .map((item) => {
-                const satuan = item.rincian.split(" ").pop(); // Ambil satuan dari rincian
-                return `<tr><td>${item.nama}</td><td>${
-                  item.rincian
-                }</td><td class="text-right">${formatRupiah(
-                  item.subtotal
-                )} / ${satuan}</td></tr>`;
-              })
-              .join("");
-            return `<h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem;">Biaya Penyusutan Aset</h3><table class="report-table"><thead><tr><th>Nama Aset</th><th>Rincian Aset</th><th class="text-right">Biaya Penyusutan</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="2">Total Beban Penyusutan (dihitung harian untuk HPP)</td><td class="text-right">${formatRupiah(
-              totalBiayaPenyusutanUntukHPP
-            )}</td></tr></tfoot></table>`;
-          };
-
-          let margins = [
-            { p: 0.75, l: "Standar (75%)", c: "#15803d" },
-            { p: 1.0, l: "Ideal (100%)", c: "#1d4ed8" },
-            { p: 1.2, l: "Premium (120%)", c: "#7e22ce" },
-          ];
-          if (customMargins && customMargins.length > 0) {
-            margins = margins.concat(customMargins);
-          }
-          const rekomendasiHTML = margins
-            .map((m) => {
-              const untung = hpp * m.p;
-              const jual = Math.ceil((hpp + untung) / 500) * 500;
-              return `<div class="rekomendasi-item" style="border-left-color:${
-                m.c
-              };"><div style="flex-grow:1;"><p><b>Margin ${
-                m.l
-              }</b></p><p style="font-size:0.8rem;color:#555;">Untung: ${formatRupiah(
-                untung
-              )}/pcs</p></div><b style="font-size:1.25rem; color:${
-                m.c
-              };">${formatRupiah(jual)}</b></div>`;
-            })
-            .join("");
-
-          return `<!DOCTYPE html><html lang="id"><head><title>Laporan HPP - ${namaProduk}</title><style>body{font-family:sans-serif;margin:auto;max-width:800px;padding:2rem;color:#333;}.report-table{width:100%;border-collapse:collapse;margin-top:0.5rem;margin-bottom:1.5rem;}.report-table th,.report-table td{border:1px solid #ddd;padding:0.5rem;text-align:left;}.report-table th{background-color:#f9f9f9;} .report-table tfoot td{font-weight:700;background-color:#f9f9f9;}.text-right{text-align:right;}.summary-box{border:2px solid #3b82f6;padding:1rem;text-align:center;border-radius:0.5rem;margin-bottom:1rem;}.rekomendasi-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem;border-left:4px solid;background-color:#f8fafc;margin-top:0.5rem;border-radius:0 0.5rem 0.5rem 0;}.print-btn-container{text-align:center;margin-top:2rem; padding-bottom: 2rem;}@media print{ .print-btn-container{display:none;} }</style></head><body><header style="display:flex; align-items:center; border-bottom: 2px solid #eee; padding-bottom: 1.5rem; margin-bottom: 1.5rem;">${logoHTML}<div><h2 style="font-size:1.5rem; margin:0;">Laporan HPP: ${namaProduk}</h2><p style="color:#666; margin:0;">${new Date().toLocaleDateString("id-ID", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}</p></div></header>
-            ${buatTabelRincian(
-              "Biaya Bahan Baku",
-              rincianBahan,
-              totalBiayaBahanBaku
-            )}
-            ${buatTabelRincian(
-              "Biaya Tenaga Kerja",
-              rincianTenagaKerja,
-              totalBiayaTenagaKerja
-            )}
-            ${buatTabelPenyusutan()}
-            ${buatTabelRincian(
-              "Biaya Pendukung Lainnya",
-              rincianPendukung,
-              totalBiayaPendukung
-            )}
-            <div style="display:flex;justify-content:space-between;padding:1rem;background-color:#f9f9f9;border-radius:0.5rem;margin-top:1.5rem;font-weight:700;font-size:1.125rem;"><span>Total Biaya Produksi</span><span>${formatRupiah(
-              totalBiayaProduksi
-            )}</span></div><p style="margin-top:0.5rem; text-align:right;">(untuk ${jumlahProduk} produk)</p><h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 2rem;">Hasil Akhir & Rekomendasi</h3><div class="summary-box"><p>HPP per Produk</p><p style="font-size:2rem;font-weight:700;color:#1d4ed8;margin:0;">${formatRupiah(hpp)}</p></div>${rekomendasiHTML}<div class="print-btn-container"><button onclick="window.print()" style="padding:0.75rem 1.5rem; background-color:#1e40af;color:white;border:none;border-radius:0.5rem;cursor:pointer;font-size:1rem;">🖨️ Cetak Laporan</button><button onclick="window.close()" style="padding:0.75rem 1.5rem; background-color:#9ca3af;color:white;border:none;border-radius:0.5rem;cursor:pointer;font-size:1rem;margin-left:0.5rem;">Tutup</button></div></body></html>`;
+            const {rincianBahan, rincianTenagaKerja, rincianPenyusutan, rincianPendukung, totalBiayaProduksi, hpp, jumlahProduk, namaProduk, logoDataUrl, customMargins} = data;
+            const logoHTML = logoDataUrl && logoDataUrl.startsWith('data:image') ? `<img src="${logoDataUrl}" alt="Logo Usaha" style="max-width: 80px; max-height: 80px; object-fit: contain; margin-right: 1.5rem; border-radius: 0.5rem;">` : '';
+            const totalBiayaBahanBaku = rincianBahan.reduce((s,i) => s + i.subtotal, 0);
+            const totalBiayaTenagaKerja = rincianTenagaKerja.reduce((s,i) => s + i.subtotal, 0);
+            const totalBiayaPenyusutanUntukHPP = rincianPenyusutan.reduce((s,i) => s + i.subtotal_for_hpp, 0);
+            const totalBiayaPendukung = rincianPendukung.reduce((s,i) => s + i.subtotal, 0);
+            const buatTabelRincian = (judul, dataRincian, total) => { if (dataRincian.length === 0) return ''; let rows = dataRincian.map(item => `<tr><td>${item.nama}</td><td>${item.rincian}</td><td class="text-right">${formatRupiah(item.subtotal)}</td></tr>`).join(''); return `<h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem;">${judul}</h3><table class="report-table"><thead><tr><th>Nama / Deskripsi</th><th>Rincian</th><th class="text-right">Subtotal</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="2">Total ${judul}</td><td class="text-right">${formatRupiah(total)}</td></tr></tfoot></table>`; };
+            const buatTabelPenyusutan = () => { if (rincianPenyusutan.length === 0) return ''; let rows = rincianPenyusutan.map(item => { const satuan = item.rincian.split(' ').pop(); return `<tr><td>${item.nama}</td><td>${item.rincian}</td><td class="text-right">${formatRupiah(item.subtotal)} / ${satuan}</td></tr>`; }).join(''); return `<h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 1.5rem;">Biaya Penyusutan Aset</h3><table class="report-table"><thead><tr><th>Nama Aset</th><th>Rincian Aset</th><th class="text-right">Biaya Penyusutan</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td colspan="2">Total Beban Penyusutan (dihitung harian untuk HPP)</td><td class="text-right">${formatRupiah(totalBiayaPenyusutanUntukHPP)}</td></tr></tfoot></table>`; };
+            let margins = [{p:0.75,l:'Standar (75%)',c:'#15803d'},{p:1.0,l:'Ideal (100%)',c:'#1d4ed8'},{p:1.2,l:'Premium (120%)',c:'#7e22ce'}];
+            if (customMargins && customMargins.length > 0) { margins = margins.concat(customMargins); }
+            const rekomendasiHTML = margins.map(m => { const untung = hpp * m.p; const jual = Math.ceil((hpp + untung) / 500) * 500; return `<div class="rekomendasi-item" style="border-left-color:${m.c};"><div style="flex-grow:1;"><p><b>Margin ${m.l}</b></p><p style="font-size:0.8rem;color:#555;">Untung: ${formatRupiah(untung)}/pcs</p></div><b style="font-size:1.25rem; color:${m.c};">${formatRupiah(jual)}</b></div>`; }).join('');
+            return `<!DOCTYPE html><html lang="id"><head><title>Laporan HPP - ${namaProduk}</title><style>body{font-family:sans-serif;margin:auto;max-width:800px;padding:2rem;color:#333;}.report-table{width:100%;border-collapse:collapse;margin-top:0.5rem;margin-bottom:1.5rem;}.report-table th,.report-table td{border:1px solid #ddd;padding:0.5rem;text-align:left;}.report-table th{background-color:#f9f9f9;} .report-table tfoot td{font-weight:700;background-color:#f9f9f9;}.text-right{text-align:right;}.summary-box{border:2px solid #3b82f6;padding:1rem;text-align:center;border-radius:0.5rem;margin-bottom:1rem;}.rekomendasi-item{display:flex;justify-content:space-between;align-items:center;padding:0.75rem;border-left:4px solid;background-color:#f8fafc;margin-top:0.5rem;border-radius:0 0.5rem 0.5rem 0;}.print-btn-container{text-align:center;margin-top:2rem; padding-bottom: 2rem;}@media print{ .print-btn-container{display:none;} }</style></head><body><header style="display:flex; align-items:center; border-bottom: 2px solid #eee; padding-bottom: 1.5rem; margin-bottom: 1.5rem;">${logoHTML}<div><h2 style="font-size:1.5rem; margin:0;">Laporan HPP: ${namaProduk}</h2><p style="color:#666; margin:0;">${new Date().toLocaleDateString('id-ID',{weekday:'long',year:'numeric',month:'long',day:'numeric'})}</p></div></header>${buatTabelRincian('Biaya Bahan Baku',rincianBahan,totalBiayaBahanBaku)}${buatTabelRincian('Biaya Tenaga Kerja',rincianTenagaKerja,totalBiayaTenagaKerja)}${buatTabelPenyusutan()}${buatTabelRincian('Biaya Pendukung Lainnya',rincianPendukung,totalBiayaPendukung)}<div style="display:flex;justify-content:space-between;padding:1rem;background-color:#f9f9f9;border-radius:0.5rem;margin-top:1.5rem;font-weight:700;font-size:1.125rem;"><span>Total Biaya Produksi</span><span>${formatRupiah(totalBiayaProduksi)}</span></div><p style="margin-top:0.5rem; text-align:right;">(untuk ${jumlahProduk} produk)</p><h3 style="font-size: 1.125rem; font-weight: 600; margin-top: 2rem;">Hasil Akhir & Rekomendasi</h3><div class="summary-box"><p>HPP per Produk</p><p style="font-size:2rem;font-weight:700;color:#1d4ed8;margin:0;">${formatRupiah(hpp)}</p></div>${rekomendasiHTML}<div class="print-btn-container"><button onclick="window.print()" style="padding:0.75rem 1.5rem; background-color:#1e40af;color:white;border:none;border-radius:0.5rem;cursor:pointer;font-size:1rem;">🖨️ Cetak Laporan</button><button onclick="window.close()" style="padding:0.75rem 1.5rem; background-color:#9ca3af;color:white;border:none;border-radius:0.5rem;cursor:pointer;font-size:1rem;margin-left:0.5rem;">Tutup</button></div></body></html>`;
         }
-      });
+    });
     </script>
-  </body>
+</body>
 </html>
