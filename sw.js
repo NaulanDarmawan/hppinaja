@@ -1,10 +1,10 @@
-const CACHE_NAME = 'hppinaja-cache-v1';
+const CACHE_NAME = 'hppinaja-cache-v4'; // Versi cache diubah agar browser memuat ulang
 const URLS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/iconstimata.png',
-  '/logo.jpg',
+  './',
+  './index.html',
+  './manifest.json',
+  './logo.jpg',          // Ikon utama untuk PWA
+  './iconstimata.png',   // Ikon untuk footer
   'https://cdn.tailwindcss.com',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
 ];

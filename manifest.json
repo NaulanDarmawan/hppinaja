@@ -2,19 +2,19 @@
   "name": "HPPinAja",
   "short_name": "HPPinAja",
   "description": "Kalkulasi HPP UMKM dalam sekejap.",
-  "start_url": ".",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f1f5f9",
   "theme_color": "#4338ca",
   "icons": [
     {
       "src": "logo.jpg",
-      "type": "image/jpg",
+      "type": "image/jpeg",
       "sizes": "192x192"
     },
     {
       "src": "logo.jpg",
-      "type": "image/jpg",
+      "type": "image/jpeg",
       "sizes": "512x512"
     }
   ]
